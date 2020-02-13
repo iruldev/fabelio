@@ -16,11 +16,11 @@
     <link rel="icon" href="favicon.png" type="image/x-icon">
 
     <!-- Toggles CSS -->
-    <link href="{{ asset('vendors/jquery-toggles/css/toggles.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('vendors/jquery-toggles/css/themes/toggles-light.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ env('APP_ASSET')('vendors/jquery-toggles/css/toggles.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ env('APP_ASSET')('vendors/jquery-toggles/css/themes/toggles-light.css') }}" rel="stylesheet" type="text/css">
 
     <!-- Custom CSS -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ env('APP_ASSET')('css/style.css') }}" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -38,7 +38,7 @@
         <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar hk-navbar-alt">
             <a class="navbar-toggle-btn nav-link-hover navbar-toggler" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarCollapseAlt" aria-controls="navbarCollapseAlt" aria-expanded="false" aria-label="Toggle navigation"><span class="feather-icon"><i data-feather="menu"></i></span></a>
             <a class="navbar-brand" href="javascript:void(0);">
-                <img class="brand-img d-inline-block align-top" src="{{ asset('img/fabelio-logo-2.svg') }}" alt="fabelio" />
+                <img class="brand-img d-inline-block align-top" src="{{ env('APP_ASSET')('img/fabelio-logo-2.svg') }}" alt="fabelio" />
             </a>
             {{-- <div class="collapse navbar-collapse" id="navbarCollapseAlt">
                 <ul class="navbar-nav">
@@ -390,31 +390,31 @@
    <!-- /HK Wrapper -->
 
     <!-- jQuery -->
-    <script src="{{ asset('vendors/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ env('APP_ASSET')('vendors/jquery/dist/jquery.min.js') }}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="{{ asset('vendors/popper.js/dist/umd/popper.min.js') }}"></script>
-    <script src="{{ asset('vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ env('APP_ASSET')('vendors/popper.js/dist/umd/popper.min.js') }}"></script>
+    <script src="{{ env('APP_ASSET')('vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
     <!-- Slimscroll JavaScript -->
-    <script src="{{ asset('js/jquery.slimscroll.js') }}"></script>
+    <script src="{{ env('APP_ASSET')('js/jquery.slimscroll.js') }}"></script>
 
     <!-- Fancy Dropdown JS -->
-    <script src="{{ asset('js/dropdown-bootstrap-extended.js') }}"></script>
+    <script src="{{ env('APP_ASSET')('js/dropdown-bootstrap-extended.js') }}"></script>
 
     <!-- FeatherIcons JavaScript -->
-    <script src="{{ asset('js/feather.min.js') }}"></script>
+    <script src="{{ env('APP_ASSET')('js/feather.min.js') }}"></script>
 
     <!-- Tablesaw JavaScript -->
-    <script src="{{ asset('vendors/tablesaw/dist/tablesaw.jquery.js') }}"></script>
-    <script src="{{ asset('js/tablesaw-data.js') }}"></script>
+    <script src="{{ env('APP_ASSET')('vendors/tablesaw/dist/tablesaw.jquery.js') }}"></script>
+    <script src="{{ env('APP_ASSET')('js/tablesaw-data.js') }}"></script>
 
     <!-- Toggles JavaScript -->
-    <script src="{{ asset('vendors/jquery-toggles/toggles.min.js') }}"></script>
-    <script src="{{ asset('js/toggle-data.js') }}"></script>
+    <script src="{{ env('APP_ASSET')('vendors/jquery-toggles/toggles.min.js') }}"></script>
+    <script src="{{ env('APP_ASSET')('js/toggle-data.js') }}"></script>
 
     <!-- Init JavaScript -->
-    <script src="{{ asset('js/init.js') }}"></script>
+    <script src="{{ env('APP_ASSET')('js/init.js') }}"></script>
 
 </body>
 
