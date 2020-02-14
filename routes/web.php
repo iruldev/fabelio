@@ -12,7 +12,7 @@
 */
 
 
-Route::group(['namespace' => 'Product'], function () {
+Route::group(['middleware' => ['cors'], 'namespace' => 'Product'], function () {
     Route::get('/', 'ProductController@index')->name('product.list');
     Route::get('new', 'ProductController@create')->name('product.new');
     Route::get('detail/{id}', 'ProductController@show')->name('product.detail');
