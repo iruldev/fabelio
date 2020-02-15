@@ -59,19 +59,20 @@ let imageId = []
 let i = 0;
 Dropzone.options.dropzonewidget = {
     url: "upload-image",
+    renameFile: function(file) {
+        var dt = new Date();
+        var time = dt.getTime();
+        return time+file.name;
+    },
     addRemoveLinks: false,
-    acceptedFiles: 'image/*',
+    acceptedFiles: ".jpeg,.jpg,.pngf",
     maxFilesize: 20,
-    init: function () {
-        this.on("success", function (file, response) {
-            imageId.push(response.image_id)
-            imageList[i] = {
-                "imagePath": response.image_path,
-                "imageId": response.image_id,
-            };
-            $('#image_id').val(imageId);
-            i++;
-        });
+    timeout: 50000,
+    success: function(file, response) {
+        console.log(response);
+    },
+    error: function(file, response) {
+        return false;
     }
 }
 
@@ -232,8 +233,6 @@ setThumb = (id, src) => {
         <div class="col-sm">
             <form action="/donee_doc_upload" class="dropzone" id="dropzonewidget" method="POST" enctype="multipart/form-data">
                 @csrf
-
-                <input hidden name="images[]" id="imagesUploaded" type="text" />
             </form>
         </div>
     </div>
