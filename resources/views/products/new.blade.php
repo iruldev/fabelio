@@ -59,20 +59,21 @@ let imageId = []
 let i = 0;
 Dropzone.options.dropzonewidget = {
     url: "upload-image",
-    renameFile: function(file) {
-        var dt = new Date();
-        var time = dt.getTime();
-        return time+file.name;
-    },
     addRemoveLinks: false,
-    acceptedFiles: ".jpeg,.jpg,.pngf",
+    acceptedFiles: 'image/*',
     maxFilesize: 20,
-    timeout: 50000,
-    success: function(file, response) {
-        console.log(response);
-    },
-    error: function(file, response) {
-        return false;
+    init: function () {
+        this.on("success", function (file, response) {
+            console.log(response);
+
+            imageId.push(response.image_id)
+            imageList[i] = {
+                "imagePath": response.image_path,
+                "imageId": response.image_id,
+            };
+            $('#image_id').val(imageId);
+            i++;
+        });
     }
 }
 
@@ -208,7 +209,7 @@ selectThumb = () => {
             $('#imageThumb').append(`
                 <div class="col-sm-6 col-md-3 mt-15">
                     <a href="javascript:void(0);" onclick="setThumb('${res.id}', '${res.image_path}')">
-                        <img src="{{ env('APP_ASSET')('storage/images/product/${res.image_path}') }}" class="img-fluid rounded" alt="img">
+                        <img src="{{ env('S3_LINK') ? env('S3_LINK').'${res.image_path}' : env('APP_ASSET')('storage/images/product/${res.image_path}') }}" class="img-fluid rounded" alt="img">
                     </a>
                 </div>
             `);
@@ -219,7 +220,7 @@ selectThumb = () => {
 
 setThumb = (id, src) => {
     $('#thumb_id').val(id);
-    $('#previewThumb').attr('src', `{{ env('APP_ASSET')('storage/images/product/${src}') }}`);
+    $('#previewThumb').attr('src', `{{ env('S3_LINK') ? env('S3_LINK').'${src}' : env('APP_ASSET')('storage/images/product/${src}') }}`);
     $('#previewThumb').removeAttr('hidden');
     $('#modalThumb').modal('hide');
 }

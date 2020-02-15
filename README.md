@@ -81,8 +81,9 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 1. Rename .env.example to .env
 2. Setup your database config in .env
-3. composer install (Terminal)
-4. sudo chmod -R 777 storage/ (Terminal)
-5. php artisan migrate (Terminal)
-6. php artisan storage:link (Terminal)
-7. RUN
+3. Setup your database S3 in .env
+4. composer install (Terminal)
+5. sudo chmod -R 777 storage/ (Terminal)
+6. php artisan migrate (Terminal)
+7. php artisan storage:link (Terminal)
+8. RUN

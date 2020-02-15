@@ -65,7 +65,7 @@ $(function() {
                 @foreach ($images as $image)
 
                     <div class="col-sm-6 col-md-3 mt-15">
-                        <img src="{{ env('APP_ASSET')('storage/images/product/'.$image->image_path) }}" class="img-fluid rounded" alt="img">
+                        <img src="{{ env('S3_LINK') ? env('S3_LINK').$image->image_path : env('APP_ASSET')('storage/images/product/'.$image->image_path) }}" class="img-fluid rounded" alt="img">
                     </div>
                 @endforeach
             </div>
@@ -142,7 +142,7 @@ $(function() {
             </div>
             <button onclick="selectThumb()" class="btn btn-primary btn-block mb-15">Thumbnail</button>
             <div class="form-group">
-                <img class="img-fluid img-thumbnail" src="{{ env('APP_ASSET')('storage/images/product/'.$thumb->image_path) }}" id="previewThumb" alt="img">
+                <img class="img-fluid img-thumbnail" src="{{ env('S3_LINK') ? env('S3_LINK').$image->image_path : env('APP_ASSET')('storage/images/product/'.$thumb->image_path) }}" id="previewThumb" alt="img">
             </div>
         </section>
     </div>
